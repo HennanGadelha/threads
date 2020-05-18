@@ -37,7 +37,7 @@ public class TelaTimeThread extends JDialog {
 
 			while (true) {
 
-				mostrarTempo
+				mostrarTempofim
 						.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm.ss").format(Calendar.getInstance().getTime()));
 				try {
 					Thread.sleep(1000);
@@ -50,7 +50,31 @@ public class TelaTimeThread extends JDialog {
 		}
 	};
 	
+	
+	private Runnable threadDataHoraFim = new Runnable() {
+
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+
+			while (true) {
+
+				mostrarTempo
+						.setText(new SimpleDateFormat("dd-MM-yyyy hh:mm:ss").format(Calendar.getInstance().getTime()));
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+		}
+	};
+	
+	
 	private Thread threadInicio;
+	private Thread threadFim;
 	
 	
 
@@ -103,6 +127,12 @@ public class TelaTimeThread extends JDialog {
 				// TODO Auto-generated method stub
 				threadInicio = new Thread(threadDataHoraInicio);
 				threadInicio.start();
+				
+				threadFim = new Thread(threadDataHoraFim);
+				threadFim.start();
+				
+				btnStart.setEnabled(false);
+				btnStop.setEnabled(true);
 			}
 			
 		});
@@ -113,12 +143,19 @@ public class TelaTimeThread extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				threadInicio.stop();
+				
+				threadFim.stop();
+				
+				btnStart.setEnabled(true);
+				btnStop.setEnabled(false);
 			}
 		});
 
 		mostrarTempo.setEditable(false);
 		mostrarTempofim.setEditable(false);
 
+		btnStop.setEnabled(false);
+		
 		add(jPanel, BorderLayout.WEST);
 		setVisible(true);
 

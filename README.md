@@ -8,3 +8,6 @@ Neste repositorio é feito inicialmente  uma implementaçao basica/quadrada do q
 [criando layout] criando um layout simples para apresentação do funcionamento das threads utlizando java swing
 
 [threads] criando primeira thread e a manuseiando como objeto através de eventos ao btnStop e btnStart
+
+[threads] criando a segunda thread, nota-se que em questão de funcionabilidade seria possivel trabalhar com a mesma thread, porém a fim
+de melhor entender seu conceito foi criada uma segunda thread executando a mesma funçao, mudando apenas a mascara da data
