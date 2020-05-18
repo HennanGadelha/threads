@@ -6,3 +6,5 @@ por exemplo: Temos Rotina A,B e C que precisam ser rodadas, mas ao invés de rod
 Neste repositorio é feito inicialmente  uma implementaçao basica/quadrada do que seria um thread para depois ir evoluindo o codigo para melhor entender seu funcionamento. 
 
 [criando layout] criando um layout simples para apresentação do funcionamento das threads utlizando java swing
+
+[threads] criando primeira thread e a manuseiando como objeto através de eventos ao btnStop e btnStart
